@@ -5,7 +5,6 @@
   vars:
     dockerhub_username: "{{ lookup('env', 'DOCKER_HUB_USERNAME') }}"
     dockerhub_password: "{{ lookup('env', 'DOCKER_HUB_PASSWORD') }}"
-
   tasks:
     - name: Copy WAR file to Docker build context
       copy:
@@ -26,7 +25,7 @@
 
     - name: Debug Docker Hub Password
       debug:
-        msg: "Docker Hub Password: {{ dockerhub_password }}"
+        msg: "Docker Hub Password: {{ dockerhub_password | password_hash('sha512') }}"
 
     - name: Log in to Docker Hub
       docker_login:
