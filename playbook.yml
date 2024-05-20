@@ -1,6 +1,6 @@
 ---
 - name: Build, Push, and Deploy Docker Container
-  hosts: docker-host
+  hosts: localhost
   tasks:
     - name: Copy WAR file to Docker build context
       copy:
