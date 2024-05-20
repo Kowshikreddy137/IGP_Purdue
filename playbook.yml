@@ -1,6 +1,11 @@
 ---
 - name: Build, Push, and Deploy Docker Container
   hosts: localhost
+
+  vars:
+    dockerhub_username: "{{ lookup('env', 'DOCKER_HUB_USERNAME') }}"
+    dockerhub_password: "{{ lookup('env', 'DOCKER_HUB_PASSWORD') }}"
+
   tasks:
     - name: Copy WAR file to Docker build context
       copy:
@@ -15,11 +20,23 @@
     - name: Tag Docker image
       command: docker tag abc_tech:{{ build_number }} kowshikreddy137/abc_tech:{{ build_number }}
 
+    - name: Debug Docker Hub Username
+      debug:
+        msg: "Docker Hub Username: {{ dockerhub_username }}"
+
+    - name: Debug Docker Hub Password
+      debug:
+        msg: "Docker Hub Password: {{ dockerhub_password }}"
+
     - name: Log in to Docker Hub
       docker_login:
         username: "{{ dockerhub_username }}"
         password: "{{ dockerhub_password }}"
       register: login_result
+
+    - name: Debug login result
+      debug:
+        var: login_result
 
     - name: Push Docker image to Docker Hub
       command: docker push kowshikreddy137/abc_tech:{{ build_number }}
