@@ -19,6 +19,7 @@
       docker_login:
         username: "{{ dockerhub_username }}"
         password: "{{ dockerhub_password }}"
+      register: login_result
 
     - name: Push Docker image to Docker Hub
       command: docker push kowshikreddy137/abc_tech:{{ build_number }}
