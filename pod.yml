@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: abc-tech-pod
+spec:
+  containers:
+  - name: abc-tech-container
+    image: kowshikreddy137/abc_tech:{{ build_number }}
+    ports:
+    - containerPort: 8080

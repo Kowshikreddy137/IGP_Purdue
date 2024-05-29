@@ -35,4 +35,4 @@
       command: docker push kowshikreddy137/abc_tech:{{ build_number }}
 
     - name: Run Docker container
-      command: docker run -d --name ABC_Tech -p 8081:8080 kowshikreddy137/abc_tech:{{ build_number }}
+      command: docker run -d --name ABC_Tech_{{ build_number }} -p 8081:8080 kowshikreddy137/abc_tech:{{ build_number }}
