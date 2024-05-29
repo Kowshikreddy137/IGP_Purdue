@@ -4,12 +4,12 @@
     - name: Create Kubernetes Pod
       k8s:
         state: present
-        definition: "{{ lookup('file', 'pod.yaml') }}"
+        definition: "{{ lookup('file', '/var/lib/jenkins/workspace/Purdue_IGP_2/pod.yaml') }}"
     - name: Create Kubernetes Service
       k8s:
         state: present
-        definition: "{{ lookup('file', 'service.yaml') }}"
+        definition: "{{ lookup('file', '/var/lib/jenkins/workspace/Purdue_IGP_2/service.yaml') }}"
     - name: Create Kubernetes Deployment
       k8s:
         state: present
-        definition: "{{ lookup('file', 'deployment.yaml') }}"
+        definition: "{{ lookup('file', '/var/lib/jenkins/workspace/Purdue_IGP_2/deployment.yaml') }}"
