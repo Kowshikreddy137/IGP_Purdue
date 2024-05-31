@@ -1,6 +1,10 @@
 - name: Deploy to Kubernetes
   hosts: localhost
   tasks:
+    - name: Ensure Kubernetes resources are present
+      kubernetes.core.k8s:
+        state: present
+        kubeconfig: /home/ec2-user/.kube/config
     - name: Create Kubernetes Pod
       k8s:
         state: present
