@@ -1,0 +1,7 @@
+all:
+  children:
+    eks_cluster:
+      hosts:
+        Kowshik-eks-wQhDNMT1:
+          ansible_host: 2092D834E18F1E05F4FE80E63520B4A1.gr7.us-east-1.eks.amazonaws.com
+          ansible_user: root

@@ -1,15 +1,15 @@
 - name: Deploy to Kubernetes
-  hosts: localhost
+  hosts: eks_cluster
   tasks:
     - name: Create Kubernetes Pod
       k8s:
         state: present
-        src: /var/lib/jenkins/workspace/Purdue_IGP_2/pod.yaml 
+        src: /var/lib/jenkins/workspace/Purdue_IGP/pod.yaml 
     - name: Create Kubernetes Service
       k8s:
         state: present
-        src: /var/lib/jenkins/workspace/Purdue_IGP_2/service.yaml
+        src: /var/lib/jenkins/workspace/Purdue_IGP/service.yaml
     - name: Create Kubernetes Deployment
       k8s:
         state: present
-        src: /var/lib/jenkins/workspace/Purdue_IGP_2/deployment.yaml
+        src: /var/lib/jenkins/workspace/Purdue_IGP/deployment.yaml
