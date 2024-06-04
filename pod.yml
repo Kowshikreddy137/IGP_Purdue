@@ -3,7 +3,6 @@ kind: Pod
 metadata:
   name: abc-tech-pod
   annotations:
-  kubernetes.io/config.mirror: "true"
 spec:
   containers:
   - name: abc-tech-container

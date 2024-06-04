@@ -7,6 +7,10 @@
     dockerhub_password: "{{ dockerhub_password }}"
 
   tasks:
+    - name: Stop and remove existing container
+      command: docker rm -f abc_tech:{{ build_number | int - 1 }}
+      ignore_errors: true
+
     - name: Copy WAR file to Docker build context
       copy:
         src: /var/lib/jenkins/workspace/{{ job_name }}/target/ABCtechnologies-1.0.war
