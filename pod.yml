@@ -6,6 +6,6 @@ metadata:
 spec:
   containers:
   - name: abc-tech-container
-    image: kowshikreddy137/abc_tech:{{ BUILD_NUMBER }}
+    image: kowshikreddy137/abc_tech:49
     ports:
     - containerPort: 8080
